@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { TouchableOpacity, StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { Colors } from "../../constants/colors";
 import Button from "../components/Button";
 import { DataContext } from "../../context/dataContext";
@@ -119,10 +119,9 @@ export default function GameScreen({ route, navigation }) {
   };
 
   return (
-    <View style={styles.tabu}>
-      <View style={{ marginBottom: 30 }}>
-        {!vitoria && !empate && (
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <View style={styles.rootContainer}>
+        {(!vitoria && !empate) && (
+          <View style={styles.headerContainer}>
             <Text style={styles.textTitle}>É a vez do jogador </Text>
             <Image
               style={{ width: 60, height: 60 }}
@@ -131,8 +130,12 @@ export default function GameScreen({ route, navigation }) {
             <Text style={styles.textTitle}> jogar</Text>
           </View>
         )}
-      </View>
-      <View style={styles.tabulinha}>
+        { (vitoria || empate) && (
+          <View style={styles.headerContainer}>
+            </View>
+        )}
+
+      <View style={styles.tableRows}>
         <ElmCasaJogo
           onPress={() => {
             inicio(0, 0);
@@ -155,7 +158,7 @@ export default function GameScreen({ route, navigation }) {
           imagemP1={imagemP1}
         />
       </View>
-      <View style={styles.tabulinha}>
+      <View style={styles.tableRows}>
         <ElmCasaJogo
           onPress={() => {
             inicio(1, 0);
@@ -178,7 +181,7 @@ export default function GameScreen({ route, navigation }) {
           imagemP1={imagemP1}
         />
       </View>
-      <View style={styles.tabulinha}>
+      <View style={styles.tableRows}>
         <ElmCasaJogo
           onPress={() => {
             inicio(2, 0);
@@ -203,7 +206,7 @@ export default function GameScreen({ route, navigation }) {
       </View>
 
       {vitoria && (
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={styles.footerContainer}>
           <Text style={styles.bottomMessage}>O jogador </Text>
           <Image style={styles.imageResult} source={{ uri: imagemAtual }} />
           <Text style={styles.bottomMessage}> foi o vencedor</Text>
@@ -222,49 +225,35 @@ export default function GameScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  tabu: {
-    marginTop: 100,
+  rootContainer: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    backgroundColor: Colors.gameScreenBG,
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
   },
-  tabulinha: {
+  headerContainer: {
+    marginTop: 100,
+    height: 120,
+    width: '100%',
     flexDirection: "row",
-  },
-  casa: {
-    width: 100,
-    height: 100,
-    justifyContent: "center",
     alignItems: "center",
-    borderWidth: 2,
-    borderColor: "#CCC",
+    justifyContent: 'center',
   },
-  textCasa: {
-    fontSize: 60,
+  footerContainer: {
+    marginTop: 20,
+    width: '100%',
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: "center",
+  },
+  tableRows: {
+    flexDirection: "row",
   },
   bottomMessage: {
     marginTop: 20,
     fontSize: 20,
     color: Colors.textTitle,
-  },
-  btn: {
-    width: 170,
-    height: 45,
-    marginTop: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: Colors.btnBG,
-    borderWidth: 1,
-    borderColor: "red",
-    borderRadius: 7,
-  },
-  textBtn: {
-    color: Colors.btnTxtColor,
-    fontSize: 16,
-  },
-  imagemPokemon: {
-    width: 100,
-    height: 100,
   },
   textTitle: {
     fontSize: 20,

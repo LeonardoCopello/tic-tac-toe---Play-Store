@@ -6,13 +6,14 @@ const screenWidth = Dimensions.get("window").width;
 
 export default function EmptyCard({children}) {
   return (
-    <View style={[styles.containerChoice, { backgroundColor: "#CCC" }]}>
+    <View style={styles.cardContainer}>
       <Text style={styles.textImage}>{children}</Text>
     </View>
   );
 }
 const styles = StyleSheet.create({
-  containerChoice: {
+  cardContainer: {
+    backgroundColor: Colors.EmptyCardBG,
     width: screenWidth / 4,
     height: screenWidth / 4,
     marginVertical: 10,

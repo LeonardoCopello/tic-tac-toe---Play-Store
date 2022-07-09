@@ -60,6 +60,6 @@ export default function ListPokemons({ item }) {
       textImage: {
         fontSize: 13,
         color: Colors.textTitle,
-        marginBottom: 3,
+        marginBottom: 9,
       },
   })

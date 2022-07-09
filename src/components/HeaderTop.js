@@ -1,11 +1,26 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { MotiView } from 'moti'
 
 export default function HeaderTop() {
   return (
-    <View style={styles.headerContainer}>
+    <MotiView
+      from={{
+        opacity: 0,
+        translateY: -150
+      }}
+      animate={{
+        opacity: 1,
+        translateY: 0,
+      }}
+      transition={{
+        type: 'timing',
+        delay: 200,
+        duration: 600,
+      }}
+    style={styles.headerContainer}>
       <Text style={styles.textMainHeader}>Tic-Tac-Toe</Text>
-    </View>
+    </MotiView>
   );
 }
 const styles = StyleSheet.create({

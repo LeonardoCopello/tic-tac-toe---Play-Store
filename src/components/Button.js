@@ -10,11 +10,11 @@ export default function Button({ onPress, children, style, color }) {
 }
 const styles = StyleSheet.create({
   container: {
-    width: 130,
+    width: 150,
     height: 50,
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     borderWidth: 3,
     borderColor: Colors.textTitle,
     borderRadius: 10,

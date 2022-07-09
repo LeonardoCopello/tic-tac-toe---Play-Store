@@ -1,13 +1,19 @@
 export const Colors = {
-    xColor: 'red',
-    oColor: 'blue',
+    homeBG: '#CCC', //
+    xColor: 'red', //
+    oColor: 'blue', //
     btnBG: 'red',
     btnTxtColor: 'white',
-    headerBG: '#171717',
-    headerTitle: 'white',
-    textTitle: 'white',
-    cardBG: '#939C9C',
-    cardBorder: '#CCC',
-    playerOneBG: 'blue',
-    playerTwoBG: 'red',
+    titleBG: 'white',
+    EmptyCardBG: '#8B00B8', //
+    gameScreenBG: '#50006A', //
+    headerTitle: 'white', //
+    textVersus: '#50006A', //
+    textTitle: 'white', //
+    textNome: 'white', //
+    cardBG: '#8B00B8', //
+    cardBorder: '#50006A', // 
+    borderTabuleiro: '#8B00B8', //
+    playerOneBG: 'blue', //
+    playerTwoBG: 'red', //
 } 
