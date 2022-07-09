@@ -5,6 +5,10 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "permissions": [],
+      "package": "com.leonardo1977.tictactoePokemon"
+    }
   }
 }
